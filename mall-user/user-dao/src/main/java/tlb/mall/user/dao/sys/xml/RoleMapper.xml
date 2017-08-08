@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="tlb.mall.user.dao.sys.RoleMapper">
+    
+    <resultMap id="role_map" type="SysRole" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+   </resultMap>
+   
+   <sql id="role_sql" >
+    id, name, status, description, create_time, update_time
+   </sql>
+   
+    <!-- 根据用户名获取角色列表 -->
+	<select id="getUserRoles" resultType="SysRole">
+		SELECT r.`id`,r.`name`,r.`status`,r.`create_time`,r.`description`,r.`update_time` 
+        FROM `sys_user_role` ur,`sys_user` u,`sys_role` r 
+        WHERE u.`id` = ur.`user_id` AND r.`id` = ur.`role_id` AND u.`user_name` = #{userName}
+	</select>
+
+    <!-- 分页获取角色列表 -->
+    <select id="getList" resultType="RoleVo">  
+        select 
+        <include refid="role_sql"></include>
+        from sys_role r
+        
+        <where>
+            <if test="role.status != null">
+                AND r.`status` = #{role.status}
+            </if>
+            <if test="role.name != null and role.name != ''">
+                AND r.`name` = #{role.name}
+            </if>
+        </where>
+        
+        <if test="pager.sort!=null">
+            order by ${pager.sort} ${pager.order}
+        </if>
+    </select>
+    
+</mapper>

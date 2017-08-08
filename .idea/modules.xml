@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mall-common/common-disconf/common-disconf.iml" filepath="$PROJECT_DIR$/mall-common/common-disconf/common-disconf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-common/common-dubbo/common-dubbo.iml" filepath="$PROJECT_DIR$/mall-common/common-dubbo/common-dubbo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-common/common-util/common-util.iml" filepath="$PROJECT_DIR$/mall-common/common-util/common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall.iml" filepath="$PROJECT_DIR$/mall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common.iml" filepath="$PROJECT_DIR$/mall-common/mall-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-entity/mall-entity.iml" filepath="$PROJECT_DIR$/mall-entity/mall-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-user/mall-user.iml" filepath="$PROJECT_DIR$/mall-user/mall-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-user/user-api/user-api.iml" filepath="$PROJECT_DIR$/mall-user/user-api/user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-user/user-dao/user-dao.iml" filepath="$PROJECT_DIR$/mall-user/user-dao/user-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-user/user-server/user-server.iml" filepath="$PROJECT_DIR$/mall-user/user-server/user-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-user/user-service/user-service.iml" filepath="$PROJECT_DIR$/mall-user/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-user/user-web/user-web.iml" filepath="$PROJECT_DIR$/mall-user/user-web/user-web.iml" />
+    </modules>
+  </component>
+</project>

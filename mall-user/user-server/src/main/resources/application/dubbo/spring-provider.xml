@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd 
+                        http://code.alibabatech.com/schema/dubbo 
+                        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="mall-user-server" />
+    
+    <!-- zookeeper 注册中心 -->
+    <dubbo:registry address="${zookeeper.register.center.url}" timeout="30000" />
+    <dubbo:protocol name="${rpc.protecol}" port="${zookeeper.service.port}" codec="spring" />
+    
+    
+    
+    <!-- ======================= 声明需要暴露的服务接口 【开始】======================= -->
+    <!-- 
+        ·配置简要说明：
+        ·<dubbo:service>标签中的ref，引用的是spring容器中的bean，和普通spring配置文件中的ref作用一样。
+        ·<dubbo:service>标签中的interface，是接口的完全包类名。无论是服务提供者还是服务调用者，标签中都会有interface属性，所以，接口包路径要一致。
+        ·   这里也说明了为什么要将接口单独抽离成一个jar模块，因为dubbo是根据接口包类名来寻找接口服务方的。并且，接口的方法参数、参数类型都要一致。
+     -->
+    
+    <!-- 这一个服务是用作调试使用，在项目中未使用到 -->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.HelloWordService" ref="helloWordServiceImpl" timeout="30000" retries="0" />-->
+
+    
+    
+    
+    <!-- 通用BaseService服务 -->
+    <!-- <dubbo:service interface="pers.zb.ucenter.rpc.api.BaseService" ref="baseServiceImpl" timeout="30000" retries="0" /> -->
+    
+    
+    <!-- 全局配置服务 -->
+    <dubbo:service interface="tlb.mall.user.rpc.api.basic.BasicConfigService" ref="basicConfigServiceImpl" timeout="30000" retries="0" />
+    
+    <!-- 基础服务：User、Role、Permission、UserRole、RolePermission -->
+    <dubbo:service interface="tlb.mall.user.rpc.api.user.UserService" ref="userServiceImpl" timeout="30000" retries="0" />
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.sys.MenuService" ref="menuServiceImpl" timeout="30000" retries="0" />-->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.sys.RoleService" ref="roleServiceImpl" timeout="30000" retries="0" />-->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.sys.UserRoleService" ref="userRoleServiceImpl" timeout="30000" retries="0" />-->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.sys.PermissionService" ref="permissionServiceImpl" timeout="30000" retries="0" />-->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.sys.RolePermissionService" ref="rolePermissionServiceImpl" timeout="30000" retries="0" />-->
+    
+    <!-- 微信相关服务 -->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.wechat.TemplateMessageService" ref="templateMessageServiceImpl" timeout="30000" retries="0" />-->
+    
+    <!-- 订单相关服务 -->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.order.OrderInfoService" ref="orderServiceImpl" timeout="30000" retries="0" />-->
+    
+    <!-- 资源下载相关服务 -->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.basic.BasicSourceDownloadService" ref="basicSourceDownloadServiceImpl" timeout="30000" retries="0" />-->
+    
+    <!-- activemq消息相关服务 -->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.activemq.QueueMessageService" ref="queueMessageServiceImpl" timeout="30000" retries="0" />-->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.activemq.TopicMessageService" ref="topicMessageServiceImpl" timeout="30000" retries="0" />-->
+    
+    <!-- 日志记录相关服务 -->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.record.VisitRecordService" ref="visitRecordServiceImpl" timeout="30000" retries="0" />-->
+    
+    <!-- activiti工作流相关服务 -->
+    <!--<dubbo:service interface="org.activiti.engine.RepositoryService" ref="repositoryService" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="org.activiti.engine.RuntimeService" ref="runtimeService" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="org.activiti.engine.TaskService" ref="taskService" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="org.activiti.engine.HistoryService" ref="historyService" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="org.activiti.engine.ManagementService" ref="managementService" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="org.activiti.engine.IdentityService" ref="identityService" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="org.activiti.engine.FormService" ref="formService" timeout="30000" retries="0"/>-->
+    <!---->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.activiti.ProcessListService" ref="processListServiceImpl" timeout="30000" retries="0"/>-->
+    <!--<dubbo:service interface="pers.zb.ucenter.rpc.api.activiti.LeaveApplyService" ref="leaveApplyServiceImpl" timeout="30000" retries="0"/>-->
+    
+    
+    
+    
+    <!-- ======================= 声明需要暴露的服务接口 【结束】======================= -->
+</beans>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mall</artifactId>
+        <groupId>tlb.mall</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>tlb.mall.user</groupId>
+    <artifactId>mall-user</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>user-dao</module>
+        <module>user-service</module>
+        <module>user-server</module>
+        <module>user-api</module>
+        <module>user-web</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>tlb.mall.common.util</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tlb.mall.entity</groupId>
+            <artifactId>mall-entity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tlb.mall.common</groupId>
+            <artifactId>common-dubbo</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

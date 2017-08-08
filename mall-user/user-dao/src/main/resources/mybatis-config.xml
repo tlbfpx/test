@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
+	<typeAliases>
+		<typeAlias type="tlb.mall.entity.sys.vo.UserVo" alias="UserVo" />
+		<typeAlias type="tlb.mall.entity.sys.vo.RoleVo" alias="RoleVo" />
+		<typeAlias type="tlb.mall.entity.sys.vo.PermissionVo" alias="PermissionVo" />
+		
+		
+		<typeAlias type="tlb.mall.entity.sys.SysPermission" alias="SysPermission" />
+		<typeAlias type="tlb.mall.entity.sys.SysRole" alias="SysRole" />
+		<typeAlias type="tlb.mall.entity.sys.SysUser" alias="SysUser" />
+		<typeAlias type="tlb.mall.entity.activiti.LeaveApply" alias="LeaveApply" />
+	</typeAliases>
+    
+    <!-- 下面的配置，主要作用是：
+                1、对于实体bean中枚举类型的属性，在进行数据库相关crud操作的时候，可以进行表字段值的映射。
+                2、所以，在新增枚举类的时候，记得务必在这里配置一下。
+    -->
+	<typeHandlers>
+		<typeHandler handler="tlb.mall.common.util.enums.entity.EntityEnumTypeHandler" javaType="tlb.mall.common.util.enums.Status" />
+		<typeHandler handler="tlb.mall.common.util.enums.entity.EntityEnumTypeHandler" javaType="tlb.mall.common.util.enums.UserStatus" />
+		<typeHandler handler="tlb.mall.common.util.enums.entity.EntityEnumTypeHandler" javaType="tlb.mall.common.util.enums.FromSystemEnum" />
+		<typeHandler handler="tlb.mall.common.util.enums.entity.EntityEnumTypeHandler" javaType="tlb.mall.common.util.enums.order.OrderSource" />
+		<typeHandler handler="tlb.mall.common.util.enums.entity.EntityEnumTypeHandler" javaType="tlb.mall.common.util.enums.activiti.LeaveType" />
+	</typeHandlers>
+
+</configuration>
